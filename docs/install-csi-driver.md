@@ -11,7 +11,7 @@ curl -skSL https://raw.githubusercontent.com/travcunn/qumulo-csi-driver/master/d
  - local install
 ```console
 git clone https://github.com/travcunn/qumulo-csi-driver.git
-cd csi-driver-nfs
+cd qumulo-csi-driver
 ./deploy/install-driver.sh master local
 ```
 
