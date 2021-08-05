@@ -60,7 +60,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 	})
 
 	testDriver = driver.InitNFSDriver()
-	ginkgo.It("should create a volume on demand with mount options [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create a volume on demand with mount options [qumulo.nfs.csi.k8s.io]", func() {
 		pods := []testsuites.PodDetails{
 			{
 				Cmd: "echo 'hello world' > /mnt/test-1/data && grep 'hello world' /mnt/test-1/data",
@@ -84,7 +84,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It("should create multiple PV objects, bind to PVCs and attach all to different pods on the same node [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create multiple PV objects, bind to PVCs and attach all to different pods on the same node [qumulo.nfs.csi.k8s.io]", func() {
 		pods := []testsuites.PodDetails{
 			{
 				Cmd: "while true; do echo $(date -u) >> /mnt/test-1/data; sleep 100; done",
@@ -121,7 +121,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 	})
 
 	// Track issue https://github.com/kubernetes/kubernetes/issues/70505
-	ginkgo.It("should create a volume on demand and mount it as readOnly in a pod [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create a volume on demand and mount it as readOnly in a pod [qumulo.nfs.csi.k8s.io]", func() {
 		pods := []testsuites.PodDetails{
 			{
 				Cmd: "touch /mnt/test-1/data",
@@ -145,7 +145,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It("should create a deployment object, write and read to it, delete the pod and write and read to it again [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create a deployment object, write and read to it, delete the pod and write and read to it again [qumulo.nfs.csi.k8s.io]", func() {
 		pod := testsuites.PodDetails{
 			Cmd: "echo 'hello world' >> /mnt/test-1/data && while true; do sleep 100; done",
 			Volumes: []testsuites.VolumeDetails{
@@ -174,7 +174,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It(fmt.Sprintf("should delete PV with reclaimPolicy %q [nfs.csi.k8s.io]", v1.PersistentVolumeReclaimDelete), func() {
+	ginkgo.It(fmt.Sprintf("should delete PV with reclaimPolicy %q [qumulo.nfs.csi.k8s.io]", v1.PersistentVolumeReclaimDelete), func() {
 		reclaimPolicy := v1.PersistentVolumeReclaimDelete
 		volumes := []testsuites.VolumeDetails{
 			{
@@ -191,7 +191,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It(fmt.Sprintf("should retain PV with reclaimPolicy %q [nfs.csi.k8s.io]", v1.PersistentVolumeReclaimRetain), func() {
+	ginkgo.It(fmt.Sprintf("should retain PV with reclaimPolicy %q [qumulo.nfs.csi.k8s.io]", v1.PersistentVolumeReclaimRetain), func() {
 		reclaimPolicy := v1.PersistentVolumeReclaimRetain
 		volumes := []testsuites.VolumeDetails{
 			{
@@ -208,7 +208,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It("should create a pod with multiple volumes [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create a pod with multiple volumes [qumulo.nfs.csi.k8s.io]", func() {
 		volumes := []testsuites.VolumeDetails{}
 		for i := 1; i <= 6; i++ {
 			volume := testsuites.VolumeDetails{
@@ -235,7 +235,7 @@ var _ = ginkgo.Describe("Dynamic Provisioning", func() {
 		test.Run(cs, ns)
 	})
 
-	ginkgo.It("should create a pod with volume mount subpath [nfs.csi.k8s.io]", func() {
+	ginkgo.It("should create a pod with volume mount subpath [qumulo.nfs.csi.k8s.io]", func() {
 		pods := []testsuites.PodDetails{
 			{
 				Cmd: convertToPowershellCommandIfNecessary("echo 'hello world' > /mnt/test-1/data && grep 'hello world' /mnt/test-1/data"),

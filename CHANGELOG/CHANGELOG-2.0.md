@@ -2,7 +2,7 @@
 
 ## Breaking Changes
 
-- Changing name of the driver from "csi-nfsplugin" to "nfs.csi.k8s.io" ([#26](https://github.com/kubernetes-csi/csi-driver-nfs/pull/26), [@wozniakjan](https://github.com/wozniakjan))
+- Changing name of the driver from "csi-nfsplugin" to "qumulo.nfs.csi.k8s.io" ([#26](https://github.com/kubernetes-csi/csi-driver-nfs/pull/26), [@wozniakjan](https://github.com/wozniakjan))
 
 ## New Features
 

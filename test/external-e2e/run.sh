@@ -33,7 +33,7 @@ setup_e2e_binaries() {
     export EXTRA_HELM_OPTIONS="--set feature.enableFSGroupPolicy=true --set driver.name=$DRIVER.csi.k8s.io --set controller.name=csi-$DRIVER-controller --set node.name=csi-$DRIVER-node"
 
     # test on alternative driver name
-    sed -i "s/nfs.csi.k8s.io/$DRIVER.csi.k8s.io/g" deploy/example/storageclass-nfs.yaml
+    sed -i "s/qumulo.nfs.csi.k8s.io/$DRIVER.csi.k8s.io/g" deploy/example/storageclass-nfs.yaml
     # install csi driver
     mkdir -p /tmp/csi && cp deploy/example/storageclass-nfs.yaml /tmp/csi/storageclass.yaml
     make e2e-bootstrap

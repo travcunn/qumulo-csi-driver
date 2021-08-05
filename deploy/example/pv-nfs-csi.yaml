@@ -13,7 +13,7 @@ spec:
     - hard
     - nfsvers=4.1
   csi:
-    driver: nfs.csi.k8s.io
+    driver: qumulo.nfs.csi.k8s.io
     readOnly: false
     volumeHandle: unique-volumeid  # make sure it's a unique id in the cluster
     volumeAttributes:
