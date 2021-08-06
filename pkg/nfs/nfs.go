@@ -42,7 +42,7 @@ type Driver struct {
 }
 
 const (
-	DefaultDriverName = "nfs.csi.k8s.io"
+	DefaultDriverName = "qumulo.nfs.csi.k8s.io"
 	// Address of the NFS server
 	paramServer = "server"
 	// Base directory of the NFS server to create volumes under.
